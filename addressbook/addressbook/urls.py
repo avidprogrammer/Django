@@ -3,12 +3,20 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-import contacts.views
+import contacts.views as cv
 
 urlpatterns = patterns('',
-                url(r'^$', contacts.views.ListContactView.as_view(),
+                url(r'^hello$', cv.HelloWorld,
+                    name='hello-world'),
+                url(r'^date$', cv.CurDateTime,
+                    name='hello-world'),
+                url(r'^date/(\d+)$', cv.FutureDateTime,
+                    name='hello-world'),
+                url(r'^receipt/(?P<slug>\w+)$', cv.ReceiptView.as_view(),
+                    name='receipt'),
+                url(r'^$', cv.ListContactView.as_view(),
                     name='contacts-list',),
-                url(r'^new$', contacts.views.CreateContactView.as_view(),
+                url(r'^new$', cv.CreateContactView.as_view(),
                     name='contacts-new',),
     # Examples:
     # url(r'^$', 'addressbook.views.home', name='home'),

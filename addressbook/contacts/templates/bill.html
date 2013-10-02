@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  {#<link rel="stylesheet" href="{% static 'css/hw.css' %}"/>#}
+</head>
+<body>
+<h1>This is your Bill</h1>
+  <p>Dear {{ bill.person_name }}, thank you for choosing {{ bill.company_name }}.
+  Your Order shall ship on {{ bill.ship_date }}</p>
+
+ <p> Your items </p>
+   {{ bill.item }}
+</body>
