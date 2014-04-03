@@ -23,21 +23,14 @@ class redirectPage(Handler):
         self.redirect("/blog") 
 
 class mainPage(Handler):
-    def write(self, posts):
-        template = jinja_env.get_template("mainPage.html")
-        self.writePage(template, posts=posts)
-
     def get(self):
         posts = db.GqlQuery("select * from blogEntry ORDER BY created DESC " + 
                              "LIMIT 10")
-        self.write(posts)
+        self.writePage("mainPage.html", posts=posts)
 
 class newPostPage(Handler):
     def write(self, sub="", content="", err=""):
-        self.writePage('newPost.html', **{SUB     : sub,
-                                          CONTENT : content,
-                                          ERR     : err
-                                          })
+        self.writePage('newPost.html', SUB=sub, CONTENT=content, ERR=err)
 
     def get(self):
         self.write()
@@ -54,12 +47,9 @@ class newPostPage(Handler):
             self.redirect('/blog/%s'%entry.key().id()) 
 
 class entryPage(Handler):
-    def write(self, post): 
-        self.writePage('entry.html', post=post)
-
     def get(self, doc_id):
         post = blogEntry.get_by_id(int(doc_id))
-        self.write(post)
+        self.writePage('entry.html', post=post)
 
 application = webapp2.WSGIApplication([(r'/', redirectPage),
                                        (r'/blog', mainPage),
