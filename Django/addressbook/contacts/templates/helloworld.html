@@ -1,18 +1,8 @@
 <head>This is your Bill
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <link type="stylesheet" type="text/css" src="{%static 'css/hw.css'  %}"/>
 </head>
 <body>
   <p>Dear {{ person_name }}, thank you for choosing {{ company_name }}.
   Your Order shall ship on {{ ship_date | date:"F j, Y" }}</p>
-
- <p> Your items </p>
- <table>
-    { % for item in item_list }
-    <tr> 
-        <td> {{ item }} </td>
-        <td> { % price_list.item } </td>
-    </tr>
-    { % endfor }
- </table>   
+  <p> {{ item }} </p>
+  <p> {{ price }} </p>
 </body>

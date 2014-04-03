@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<html>
+  <head>
+    {% block head %}
+      <link rel='stylesheet' href='{% static "bootstrap/css/bootstrap.min.css" %}'/>
+    {% endblock %}
+  </head>
+  <body>
+      {% block content %}
+      {% endblock%}
+  </body>
+</html>

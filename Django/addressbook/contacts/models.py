@@ -34,19 +34,19 @@ class Bill(models.Model):
              (IE, IE),
             )
 
-    PRICES = {IA   : '10',
-              IB   : '20',
-              IC   : '30',
-              ID   : '40',
-              IE   : '50',
+    PRICES = {IA   : 10,
+              IB   : 20,
+              IC   : 30,
+              ID   : 40,
+              IE   : 50,
              }
     
     person_name  = models.CharField(max_length=25)
     company_name = models.CharField(max_length=25)
     ship_date = models.DateField()
     item = models.TextField(choices=ITEMS)
-    price = PRICES.get(item, '0')
-    
+    price = models.IntegerField(default=0)
+
     def __str__(self):
         return ' '.join([self.person_name, 
                          self.company_name,
