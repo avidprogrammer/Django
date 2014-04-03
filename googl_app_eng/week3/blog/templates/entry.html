@@ -1,0 +1,10 @@
+<head>
+  <link rel="stylesheet" href="/css/blog.css" type="text/css">
+</head>
+<div class="main">
+  <div class="entry">
+    <div class="title"> {{ post.sub }} </div>
+    <div class="date"> {{ post.created.strftime('%b %d %Y') }} </div>
+  </div>
+  <div class="content"> {{ post.content }} </div>
+</div>

@@ -1,0 +1,25 @@
+.main{
+  width: 800px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.error {
+  color: red;
+}
+
+.entry {
+  position: relative;
+  border-bottom: 3px solid #666;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.date {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
