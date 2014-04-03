@@ -1,4 +1,4 @@
-Django
+WebApps
 ======
 
-My Django Projects
+My experiments with web frameworks 
