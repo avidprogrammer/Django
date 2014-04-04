@@ -1,0 +1,9 @@
+<div class="main">
+  <div class="entry">
+    <div class="title">
+      <a href="/blog/{{post.key().id()}}">{{ post.sub }} </a>
+    </div>
+    <div class="date"> {{ post.created.strftime('%b %d %Y') }} </div>
+  </div>
+  <div class="content"> {{ post.content }} </div>
+</div>

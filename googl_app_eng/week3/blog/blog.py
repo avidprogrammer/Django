@@ -44,12 +44,18 @@ class newPostPage(Handler):
         else:
             entry = blogEntry(sub=sub, content=cnt)
             entry.put()
-            self.redirect('/blog/%s'%entry.key().id()) 
+            self.redirect('/blog/%s'%entry.key().id())
+    
 
 class entryPage(Handler):
     def get(self, doc_id):
         post = blogEntry.get_by_id(int(doc_id))
         self.writePage('entry.html', post=post)
+
+    def post(self, doc_id):
+      post = blogEntry.get_by_id(int(doc_id))
+      blogEntry.delete(post)
+      self.redirect('/blog')
 
 application = webapp2.WSGIApplication([(r'/', redirectPage),
                                        (r'/blog', mainPage),

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+  <button style="float:right">
+    <a href="/blog/newpost">Add new post</a>
+  </button>
+  <br><br>
   {% for post in posts %}
-    {% include "entry.html" %}
+    {% include "post.html" %}
     <br> <br>
   {% endfor %}
 {% endblock %}
