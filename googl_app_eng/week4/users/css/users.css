@@ -1,0 +1,9 @@
+.main {
+  width: 800px;
+  font-family: sans-serif;
+  margin: 0 auto;
+}
+
+.error {
+ color: red;
+}
